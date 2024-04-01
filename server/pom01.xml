@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!-- Add your other dependencies here -->
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        <	class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;  // If length of both strings are not equal, they cannot be anagrams.
+        
+        int[] counter = new int[26];   // Counter for each letter 'a' to 'z' in alphabet
+        
+        for (int i = 0; i < s.length(); i++) {  // Count the letters in first string
+            counter[s.charAt(i) - 'a']++;   
+        }
+        for (int i = 0; i < t.length(); i++) {   // Subtract the count of each letter from second string if it exists there. 
+            counter[t.charAt(i) - 'a']--;
+            if (counter[t.charAt(i) - 'a'] < 0) {    // If any character does not match, return false immediately.
+                return false;
+            }
+        }
+        
+        return true;   // After checking each character, if we have reached till here, it means strings are anagrams of each other so return true.
+    }
+}
+This problem is a classic one in interview questions which tests the knowledge about sorting and string manipulation. 
+
+The idea of this solution is to count occurrence of each letter in first string (s) and then decrease the counts for letters that exist in second string (t). If any character does not match or if we have negative remaining, return false immediately indicating strings are not anagrams. At end of all comparisons if no mismatches found, return true indicating they are indeed anagrams. 
+
+This solution is efficient as it has time complexity of O(n) and space complexity of O(1), because we use fixed sized array to store counts for each character in the alphabet.

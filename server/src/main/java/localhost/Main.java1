@@ -1,0 +1,14 @@
+package localhost;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Main {
+    public static void main(String[] args) {
+        // You could add your own logic here, for example to start a Spring Boot application:
+        // SpringApplication.run(Main.class, args);
+        
+        // For now we'll just print a message to the console.
+        System.out.println("Hello, World!");
+    }
+}
